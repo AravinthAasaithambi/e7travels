@@ -1,0 +1,1294 @@
+<div class="min-h-screen bg-slate-50 text-slate-800 flex font-sans antialiased selection:bg-blue-100">
+  
+  <!-- Navigation Sidebar -->
+  <aside class="w-64 bg-blue-900 text-slate-100 flex flex-col shrink-0 h-screen sticky top-0 print:hidden select-none border-r border-blue-950">
+    <div class="p-6 border-b border-blue-800 flex items-center gap-3">
+      <div class="w-8 h-8 bg-white rounded-lg flex items-center justify-center font-bold text-blue-900 text-lg">E7</div>
+      <div>
+        <h1 class="text-sm font-black text-white tracking-tight leading-none uppercase">E7 Travels</h1>
+        <p class="text-4xs font-bold text-blue-300 uppercase tracking-widest mt-1">Chennai Hub ERP</p>
+      </div>
+    </div>
+
+    <!-- Main Navigation List -->
+    <div class="p-4 flex-1 space-y-4 overflow-y-auto">
+      <div class="space-y-1">
+        <span class="text-4xs font-bold text-blue-300 uppercase tracking-widest pl-3 block mb-1">MAIN WORKSPACE</span>
+        
+        <button
+          id="menu-btn-dashboard"
+          (click)="handleNavigate('Dashboard')"
+          [class.bg-blue-800]="activeTab === 'Dashboard'"
+          [class.text-white]="activeTab === 'Dashboard'"
+          class="w-full flex items-center gap-3 px-4 py-2.5 text-xs font-semibold rounded-lg transition-colors hover:bg-blue-800/50 text-blue-100"
+        >
+          <!-- Dashboard SVG -->
+          <svg class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2v-4z" />
+          </svg>
+          Dashboard
+        </button>
+
+        <button
+          id="menu-btn-registers"
+          (click)="handleNavigate('Vehicle Master')"
+          [class.bg-blue-800]="activeTab === 'Registers'"
+          [class.text-white]="activeTab === 'Registers'"
+          class="w-full flex items-center gap-3 px-4 py-2.5 text-xs font-semibold rounded-lg transition-colors hover:bg-blue-800/50 text-blue-100"
+        >
+          <!-- Database SVG -->
+          <svg class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+          </svg>
+          Master Registers
+        </button>
+
+        <button
+          id="menu-btn-transactions"
+          (click)="handleNavigate('Company Payments')"
+          [class.bg-blue-800]="activeTab === 'Transactions'"
+          [class.text-white]="activeTab === 'Transactions'"
+          class="w-full flex items-center gap-3 px-4 py-2.5 text-xs font-semibold rounded-lg transition-colors hover:bg-blue-800/50 text-blue-100"
+        >
+          <!-- TrendingDown SVG -->
+          <svg class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
+          </svg>
+          Transactions Log
+        </button>
+      </div>
+
+      <!-- Section: LEDGERS & ACCOUNTS -->
+      <div class="space-y-1">
+        <span class="text-4xs font-bold text-blue-300 uppercase tracking-widest pl-3 block mb-1">AUDIT & ACCOUNTS</span>
+        
+        <button
+          id="menu-btn-ledgers"
+          (click)="handleNavigate('Vehicle Ledger')"
+          [class.bg-blue-800]="activeTab === 'Ledgers'"
+          [class.text-white]="activeTab === 'Ledgers'"
+          class="w-full flex items-center gap-3 px-4 py-2.5 text-xs font-semibold rounded-lg transition-colors hover:bg-blue-800/50 text-blue-100"
+        >
+          <!-- Calculator SVG -->
+          <svg class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+          </svg>
+          Running Ledgers
+        </button>
+
+        <button
+          id="menu-btn-settlement"
+          (click)="handleNavigate('Monthly Settlement')"
+          [class.bg-blue-800]="activeTab === 'Settlement'"
+          [class.text-white]="activeTab === 'Settlement'"
+          class="w-full flex items-center gap-3 px-4 py-2.5 text-xs font-semibold rounded-lg transition-colors hover:bg-blue-800/50 text-blue-100"
+        >
+          <!-- FileText SVG -->
+          <svg class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          Statements & Invoices
+        </button>
+
+        <button
+          id="menu-btn-reports"
+          (click)="handleNavigate('Reports')"
+          [class.bg-blue-800]="activeTab === 'Reports'"
+          [class.text-white]="activeTab === 'Reports'"
+          class="w-full flex items-center gap-3 px-4 py-2.5 text-xs font-semibold rounded-lg transition-colors hover:bg-blue-800/50 text-blue-100"
+        >
+          <!-- TrendingUp SVG -->
+          <svg class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+          </svg>
+          Analytics Reports
+        </button>
+      </div>
+
+      <!-- Section: INTEGRATIONS -->
+      <div class="space-y-1">
+        <span class="text-4xs font-bold text-blue-300 uppercase tracking-widest pl-3 block mb-1">DEVELOPER ZONE</span>
+        
+        <button
+          id="menu-btn-settings"
+          (click)="handleNavigate('Settings')"
+          [class.bg-blue-800]="activeTab === 'Settings'"
+          [class.text-white]="activeTab === 'Settings'"
+          class="w-full flex items-center gap-3 px-4 py-2.5 text-xs font-semibold rounded-lg transition-colors hover:bg-blue-800/50 text-blue-100"
+        >
+          <!-- Settings Icon SVG -->
+          <svg class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          Parameters Settings
+        </button>
+      </div>
+    </div>
+
+    <!-- Sidebar Footer -->
+    <div class="p-4 border-t border-blue-800 text-blue-300 text-4xs font-mono space-y-2">
+      <div class="flex items-center gap-3 px-2">
+        <div class="w-8 h-8 rounded-full bg-blue-800 flex items-center justify-center font-bold text-white text-xs border border-blue-700 shrink-0">L</div>
+        <div class="text-xs font-medium">
+          <p class="text-white font-semibold">Local Admin</p>
+          <p class="opacity-50">SQLite / JSON Mode</p>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Workspace -->
+  <div class="flex-1 flex flex-col min-h-screen overflow-hidden">
+    
+    <!-- Header Bar -->
+    <header class="bg-white border-b border-slate-200 h-16 flex items-center justify-between px-8 sticky top-0 z-40 shadow-2xs print:hidden shrink-0">
+      <div class="flex items-center gap-3">
+        <h2 class="text-sm font-bold text-slate-800 tracking-tight uppercase">E7 Travels Fleet ERP</h2>
+        <span class="h-4 w-px bg-slate-200"></span>
+        <p class="text-3xs font-semibold text-slate-400 uppercase tracking-wider">Chennai Hub</p>
+      </div>
+
+      <!-- Sync Status Badge -->
+      <div class="flex items-center gap-4">
+        <div class="flex items-center gap-2">
+          <div class="text-right">
+            <p class="text-4xs font-bold text-slate-400 uppercase">LOCAL DB</p>
+            <p class="text-3xs font-extrabold text-slate-600 leading-none mt-0.5">Live Persistent</p>
+          </div>
+          <button
+            id="sync-trigger-btn"
+            (click)="handleForceRefresh()"
+            class="p-2 border border-slate-250 bg-white rounded-lg hover:bg-slate-50 text-slate-600 transition-all shadow-3xs"
+            title="Reset and Seed SQLite Database"
+          >
+            <!-- Refresh SVG -->
+            <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 16.4M21 12h-5.586a1 1 0 01-.707-.293l-5.414-5.414" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content Area -->
+    <main class="flex-1 overflow-y-auto p-8 space-y-6 print:p-0 print:overflow-visible bg-slate-50">
+      
+      <!-- Sub Navigation deck (Where necessary depending on chosen Tab) -->
+      @if (['Registers', 'Transactions', 'Ledgers', 'Settlement'].includes(activeTab)) {
+        <div class="flex bg-slate-200 p-1 rounded-xl max-w-max border border-slate-300/40 print:hidden shadow-3xs mb-4">
+          
+          <!-- Registers Sub Tabs -->
+          @if (activeTab === 'Registers') {
+            @for (sub of ['Vehicle Master', 'Owner Master', 'Driver Master', 'Company Master', 'Site Master']; track sub) {
+              <button
+                (click)="activeSubTab = sub"
+                [class.bg-white]="activeSubTab === sub"
+                [class.text-slate-800]="activeSubTab === sub"
+                [class.shadow-xs]="activeSubTab === sub"
+                class="px-4 py-1.5 text-2xs font-bold rounded-lg transition-all text-slate-500 hover:text-slate-800"
+              >
+                {{ sub.split(' ')[0] }} Master
+              </button>
+            }
+          }
+
+          <!-- Transactions Sub Tabs -->
+          @if (activeTab === 'Transactions') {
+            @for (sub of ['Company Payments', 'Expense Entry']; track sub) {
+              <button
+                (click)="activeSubTab = sub"
+                [class.bg-white]="activeSubTab === sub"
+                [class.text-slate-800]="activeSubTab === sub"
+                [class.shadow-xs]="activeSubTab === sub"
+                class="px-4 py-1.5 text-2xs font-bold rounded-lg transition-all text-slate-500 hover:text-slate-800"
+              >
+                {{ sub }}
+              </button>
+            }
+          }
+
+          <!-- Ledgers Sub Tabs -->
+          @if (activeTab === 'Ledgers') {
+            @for (sub of ['Vehicle Ledger', 'Owner Ledger', 'Driver Ledger']; track sub) {
+              <button
+                (click)="activeSubTab = sub"
+                [class.bg-white]="activeSubTab === sub"
+                [class.text-slate-800]="activeSubTab === sub"
+                [class.shadow-xs]="activeSubTab === sub"
+                class="px-4 py-1.5 text-2xs font-bold rounded-lg transition-all text-slate-500 hover:text-slate-800"
+              >
+                {{ sub }}
+              </button>
+            }
+          }
+
+          <!-- Settlement Sub Tabs -->
+          @if (activeTab === 'Settlement') {
+            @for (sub of ['Monthly Settlement', 'Owner Statement', 'Driver Statement', 'Invoice', 'Payment Voucher']; track sub) {
+              <button
+                (click)="activeSubTab = sub"
+                [class.bg-white]="activeSubTab === sub"
+                [class.text-slate-800]="activeSubTab === sub"
+                [class.shadow-xs]="activeSubTab === sub"
+                class="px-4 py-1.5 text-2xs font-bold rounded-lg transition-all text-slate-500 hover:text-slate-800"
+              >
+                {{ sub.split(' ')[0] }}
+              </button>
+            }
+          }
+        </div>
+      }
+
+      <!-- RENDER SELECTED MAIN TAB -->
+
+      <!-- ==================== DASHBOARD VIEW ==================== -->
+      @if (activeTab === 'Dashboard') {
+        <div class="space-y-6">
+          <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-xs">
+            <h2 class="text-xl font-semibold text-slate-800 tracking-tight mb-4">ERP Quick Navigation Desk</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-10 gap-2">
+              @for (n of [
+                { name: 'Dashboard', route: 'Dashboard' },
+                { name: 'Vehicles', route: 'Vehicle Master' },
+                { name: 'Owners', route: 'Owner Master' },
+                { name: 'Drivers', route: 'Driver Master' },
+                { name: 'Companies', route: 'Company Master' },
+                { name: 'Sites', route: 'Site Master' },
+                { name: 'Billing', route: 'Company Payments' },
+                { name: 'Expenses', route: 'Expense Entry' },
+                { name: 'Settlement', route: 'Monthly Settlement' },
+                { name: 'Settings', route: 'Settings' }
+              ]; track n.name) {
+                <button
+                  (click)="handleNavigate(n.route)"
+                  class="px-3 py-2 text-xs font-medium bg-slate-50 hover:bg-blue-600 hover:text-white text-slate-700 rounded-lg border border-slate-200 transition-all text-center truncate"
+                >
+                  {{ n.name }}
+                </button>
+              }
+            </div>
+          </div>
+
+          <!-- KPI Cards Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <!-- Total Vehicles -->
+            <div (click)="handleNavigate('Vehicle Master', 'all')" class="p-5 rounded-xl border flex items-center justify-between shadow-xs hover:shadow-md cursor-pointer transition-all bg-white">
+              <div class="space-y-1">
+                <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Vehicles</span>
+                <p class="text-2xl font-bold text-slate-800">{{ totalVehicles }}</p>
+              </div>
+              <div class="p-3 rounded-xl border bg-blue-50 text-blue-600 border-blue-100">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10M21 16v-2a4 4 0 00-4-4h-4" /></svg>
+              </div>
+            </div>
+
+            <!-- Running Vehicles -->
+            <div (click)="handleNavigate('Vehicle Master', 'running')" class="p-5 rounded-xl border flex items-center justify-between shadow-xs hover:shadow-md cursor-pointer transition-all bg-white">
+              <div class="space-y-1">
+                <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Running Vehicles</span>
+                <p class="text-2xl font-bold text-slate-800">{{ runningVehicles }}</p>
+              </div>
+              <div class="p-3 rounded-xl border bg-green-50 text-green-600 border-green-100">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              </div>
+            </div>
+
+            <!-- Idle Vehicles -->
+            <div (click)="handleNavigate('Vehicle Master', 'idle')" class="p-5 rounded-xl border flex items-center justify-between shadow-xs hover:shadow-md cursor-pointer transition-all bg-white">
+              <div class="space-y-1">
+                <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Idle Vehicles</span>
+                <p class="text-2xl font-bold text-slate-800">{{ idleVehicles }}</p>
+              </div>
+              <div class="p-3 rounded-xl border bg-amber-50 text-amber-600 border-amber-100">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+              </div>
+            </div>
+
+            <!-- New Vehicles -->
+            <div (click)="handleNavigate('Vehicle Master', 'new')" class="p-5 rounded-xl border flex items-center justify-between shadow-xs hover:shadow-md cursor-pointer transition-all bg-white">
+              <div class="space-y-1">
+                <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">New (This Month)</span>
+                <p class="text-2xl font-bold text-slate-800">{{ newVehiclesThisMonth }}</p>
+              </div>
+              <div class="p-3 rounded-xl border bg-purple-50 text-purple-600 border-purple-100">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
+              </div>
+            </div>
+
+            <!-- Total Billing -->
+            <div (click)="handleNavigate('Company Payments')" class="p-5 rounded-xl border flex items-center justify-between shadow-xs hover:shadow-md cursor-pointer transition-all bg-white">
+              <div class="space-y-1">
+                <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Billing</span>
+                <p class="text-2xl font-bold text-slate-800">{{ formatCurrency(totalBilling) }}</p>
+              </div>
+              <div class="p-3 rounded-xl border bg-blue-50 text-blue-700 border-blue-200">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M12 16v1m-3-9h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              </div>
+            </div>
+
+            <!-- Total Expenses -->
+            <div (click)="handleNavigate('Expense Entry')" class="p-5 rounded-xl border flex items-center justify-between shadow-xs hover:shadow-md cursor-pointer transition-all bg-white">
+              <div class="space-y-1">
+                <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Expenses</span>
+                <p class="text-2xl font-bold text-slate-800 text-rose-600">{{ formatCurrency(totalExpenses) }}</p>
+              </div>
+              <div class="p-3 rounded-xl border bg-rose-50 text-rose-600 border-rose-200">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" /></svg>
+              </div>
+            </div>
+
+            <!-- Net Profit -->
+            <div class="p-5 rounded-xl border flex items-center justify-between shadow-xs bg-white">
+              <div class="space-y-1">
+                <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Net Profit</span>
+                <p class="text-2xl font-bold text-emerald-600">{{ formatCurrency(netProfit) }}</p>
+              </div>
+              <div class="p-3 rounded-xl border bg-emerald-50 text-emerald-700 border-emerald-200">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+              </div>
+            </div>
+
+            <!-- Pending Owner Pay -->
+            <div (click)="handleNavigate('Owner Ledger')" class="p-5 rounded-xl border flex items-center justify-between shadow-xs hover:shadow-md cursor-pointer transition-all bg-white">
+              <div class="space-y-1">
+                <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Pending Owner Pay</span>
+                <p class="text-2xl font-bold text-slate-800">{{ formatCurrency(pendingOwnerPayments) }}</p>
+              </div>
+              <div class="p-3 rounded-xl border bg-violet-50 text-violet-700 border-violet-100">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Charts / Data Breakdowns -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Table showing data overview -->
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-xs">
+              <h3 class="text-sm font-semibold text-slate-700 mb-4 uppercase tracking-wider">Operational Summary Metrics</h3>
+              <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs border-collapse">
+                  <thead>
+                    <tr class="border-b border-slate-200 bg-slate-50 font-bold text-slate-500 uppercase">
+                      <th class="p-2.5">Cycle Month</th>
+                      <th class="p-2.5 text-right">Revenue</th>
+                      <th class="p-2.5 text-right">Expenses</th>
+                      <th class="p-2.5 text-right">Net Profit</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @for (row of monthlyTrendsData; track row.month) {
+                      <tr class="border-b border-slate-100 hover:bg-slate-50/55 font-medium">
+                        <td class="p-2.5 font-semibold text-slate-800">{{ row.monthLabel }}</td>
+                        <td class="p-2.5 text-right text-emerald-600 font-bold">{{ formatCurrency(row.Revenue) }}</td>
+                        <td class="p-2.5 text-right text-rose-600">{{ formatCurrency(row.Expenses) }}</td>
+                        <td class="p-2.5 text-right text-blue-700 font-extrabold">{{ formatCurrency(row.Profit) }}</td>
+                      </tr>
+                    }
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Expense Type Breakdown -->
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-xs">
+              <h3 class="text-sm font-semibold text-slate-700 mb-4 uppercase tracking-wider">Top Expense Distributions</h3>
+              <div class="space-y-3.5">
+                @for (item of expenseBreakdownData.slice(0, 5); track item.name) {
+                  <div>
+                    <div class="flex justify-between text-xs font-semibold text-slate-600 mb-1">
+                      <span>{{ item.name }}</span>
+                      <span class="text-slate-800 font-bold">{{ formatCurrency(item.value) }}</span>
+                    </div>
+                    <div class="w-full bg-slate-100 rounded-full h-2">
+                      <div class="bg-blue-600 h-2 rounded-full" [style.width.%]="(item.value / totalExpenses) * 100"></div>
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+
+      <!-- ==================== REGISTERS (MASTERS) VIEW ==================== -->
+      @if (activeTab === 'Registers') {
+        <div class="bg-white rounded-xl border border-slate-200 shadow-xs overflow-hidden">
+          
+          <!-- Tab Header -->
+          <div class="p-6 border-b border-slate-200 bg-slate-50/50 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div>
+              <h2 class="text-xl font-bold text-slate-800 tracking-tight">{{ activeSubTab }} Register</h2>
+              <p class="text-xs text-slate-500 font-medium">Manage registry database records and mappings</p>
+            </div>
+
+            @if (!isAdding && !editingId) {
+              <div class="flex items-center gap-2">
+                <input
+                  type="text"
+                  placeholder="Search records..."
+                  [(ngModel)]="searchQuery"
+                  class="px-3 py-1.5 text-xs bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 w-64"
+                />
+                <button
+                  (click)="isAdding = true"
+                  class="px-4 py-1.5 text-xs font-semibold bg-blue-600 hover:bg-blue-700 text-white rounded-lg flex items-center gap-1 shadow-xs transition-colors"
+                >
+                  + Add Record
+                </button>
+              </div>
+            }
+          </div>
+
+          <!-- Forms for Inserting/Updating -->
+          @if (isAdding || editingId) {
+            <div class="p-6 border-b border-slate-200 bg-slate-50/30">
+              <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">
+                {{ editingId ? 'Edit Entry Details' : 'Add Register Entry' }}
+              </h3>
+
+              @if (formError) {
+                <div class="mb-4 p-3 bg-rose-50 border border-rose-200 text-rose-700 text-xs rounded-lg">
+                  {{ formError }}
+                </div>
+              }
+
+              <!-- Vehicle Form -->
+              @if (activeSubTab === 'Vehicle Master') {
+                <form (submit)="handleSaveVehicle($event)" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Registration Number *</label>
+                    <input type="text" [(ngModel)]="vehicleForm.registrationNumber" name="registrationNumber" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs" placeholder="e.g. TN-07-E7-1234" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Manufacturer *</label>
+                    <input type="text" [(ngModel)]="vehicleForm.manufacturer" name="manufacturer" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Model *</label>
+                    <input type="text" [(ngModel)]="vehicleForm.model" name="model" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Fuel Type</label>
+                    <select [(ngModel)]="vehicleForm.fuelType" name="fuelType" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs bg-white">
+                      @for (f of FUEL_TYPES; track f) { <option [value]="f">{{ f }}</option> }
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Vehicle Type</label>
+                    <select [(ngModel)]="vehicleForm.vehicleType" name="vehicleType" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs bg-white">
+                      @for (vt of VEHICLE_TYPES; track vt) { <option [value]="vt">{{ vt }}</option> }
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Associated Owner *</label>
+                    <select [(ngModel)]="vehicleForm.ownerId" name="ownerId" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs bg-white">
+                      <option value="">-- Choose Owner --</option>
+                      @for (o of owners; track o.id) { <option [value]="o.id">{{ o.name }}</option> }
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Assigned Driver *</label>
+                    <select [(ngModel)]="vehicleForm.driverId" name="driverId" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs bg-white">
+                      <option value="">-- Choose Driver --</option>
+                      @for (d of drivers; track d.id) { <option [value]="d.id">{{ d.name }}</option> }
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Company Client</label>
+                    <select [(ngModel)]="vehicleForm.company" name="company" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs bg-white">
+                      <option value="">-- Choose Corporate Client --</option>
+                      @for (c of companies; track c.name) { <option [value]="c.name">{{ c.name }}</option> }
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Site</label>
+                    <select [(ngModel)]="vehicleForm.site" name="site" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs bg-white">
+                      <option value="">-- Choose Site --</option>
+                      @for (s of sites; track s.id) { <option [value]="s.name">{{ s.name }}</option> }
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">EMI Amount (₹)</label>
+                    <input type="number" [(ngModel)]="vehicleForm.emiAmount" name="emiAmount" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">EMI Due Date</label>
+                    <input type="date" [(ngModel)]="vehicleForm.emiDueDate" name="emiDueDate" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs bg-white" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Insurance Expiry</label>
+                    <input type="date" [(ngModel)]="vehicleForm.insuranceExpiry" name="insuranceExpiry" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs bg-white" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Permit Expiry</label>
+                    <input type="date" [(ngModel)]="vehicleForm.permitExpiry" name="permitExpiry" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs bg-white" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">FC Expiry</label>
+                    <input type="date" [(ngModel)]="vehicleForm.fcExpiry" name="fcExpiry" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs bg-white" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Status</label>
+                    <select [(ngModel)]="vehicleForm.status" name="status" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs bg-white">
+                      <option value="Active">Active</option>
+                      <option value="Inactive">Inactive</option>
+                    </select>
+                  </div>
+                  <div class="md:col-span-3 flex gap-2">
+                    <button type="submit" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg text-xs">Save Vehicle</button>
+                    <button type="button" (click)="resetForms()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-lg text-xs">Cancel</button>
+                  </div>
+                </form>
+              }
+
+              <!-- Owner Form -->
+              @if (activeSubTab === 'Owner Master') {
+                <form (submit)="handleSaveOwner($event)" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Owner Name *</label>
+                    <input type="text" [(ngModel)]="ownerForm.name" name="name" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Phone Number *</label>
+                    <input type="text" [(ngModel)]="ownerForm.phone" name="phone" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Email</label>
+                    <input type="email" [(ngModel)]="ownerForm.email" name="email" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Bank Name</label>
+                    <input type="text" [(ngModel)]="ownerForm.bankName" name="bankName" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Account Number</label>
+                    <input type="text" [(ngModel)]="ownerForm.accountNumber" name="accountNumber" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">IFSC</label>
+                    <input type="text" [(ngModel)]="ownerForm.ifsc" name="ifsc" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs" />
+                  </div>
+                  <div class="md:col-span-3">
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Address</label>
+                    <textarea [(ngModel)]="ownerForm.address" name="address" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs" rows="2"></textarea>
+                  </div>
+                  <div class="md:col-span-3 flex gap-2">
+                    <button type="submit" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg text-xs">Save Owner</button>
+                    <button type="button" (click)="resetForms()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-lg text-xs">Cancel</button>
+                  </div>
+                </form>
+              }
+
+              <!-- Driver Form -->
+              @if (activeSubTab === 'Driver Master') {
+                <form (submit)="handleSaveDriver($event)" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Driver Name *</label>
+                    <input type="text" [(ngModel)]="driverForm.name" name="name" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Phone *</label>
+                    <input type="text" [(ngModel)]="driverForm.phone" name="phone" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Licence Number *</label>
+                    <input type="text" [(ngModel)]="driverForm.licenceNumber" name="licenceNumber" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Salary (₹)</label>
+                    <input type="number" [(ngModel)]="driverForm.salary" name="salary" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs" />
+                  </div>
+                  <div class="md:col-span-3 flex gap-2">
+                    <button type="submit" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg text-xs">Save Driver</button>
+                    <button type="button" (click)="resetForms()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-lg text-xs">Cancel</button>
+                  </div>
+                </form>
+              }
+
+              <!-- Company Form -->
+              @if (activeSubTab === 'Company Master') {
+                <form (submit)="handleSaveCompany($event)" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Company Name *</label>
+                    <input type="text" [(ngModel)]="companyForm.name" name="name" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs" [disabled]="!!editingId" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Billing Cycle</label>
+                    <input type="text" [(ngModel)]="companyForm.billingCycle" name="billingCycle" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Payment Terms</label>
+                    <input type="text" [(ngModel)]="companyForm.paymentTerms" name="paymentTerms" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs" />
+                  </div>
+                  <div class="md:col-span-3 flex gap-2">
+                    <button type="submit" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg text-xs">Save Client</button>
+                    <button type="button" (click)="resetForms()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-lg text-xs">Cancel</button>
+                  </div>
+                </form>
+              }
+
+              <!-- Site Form -->
+              @if (activeSubTab === 'Site Master') {
+                <form (submit)="handleSaveSite($event)" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Site Hub Name *</label>
+                    <input type="text" [(ngModel)]="siteForm.name" name="name" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Associated Company *</label>
+                    <select [(ngModel)]="siteForm.companyName" name="companyName" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs bg-white">
+                      <option value="">-- Choose Company --</option>
+                      @for (c of companies; track c.name) { <option [value]="c.name">{{ c.name }}</option> }
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Location</label>
+                    <input type="text" [(ngModel)]="siteForm.location" name="location" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs" />
+                  </div>
+                  <div class="md:col-span-3 flex gap-2">
+                    <button type="submit" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg text-xs">Save Site</button>
+                    <button type="button" (click)="resetForms()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-lg text-xs">Cancel</button>
+                  </div>
+                </form>
+              }
+            </div>
+          }
+
+          <!-- Grid Display List -->
+          <div class="overflow-x-auto">
+            <!-- Vehicle Master Table -->
+            @if (activeSubTab === 'Vehicle Master') {
+              <div class="px-6 py-3 bg-slate-50 border-b border-slate-200 flex items-center gap-2">
+                <span class="text-2xs font-extrabold text-slate-400 uppercase">Filter:</span>
+                @for (f of vehicleFilters; track f) {
+                  <button
+                    (click)="vehicleFilter = f"
+                    [class.bg-blue-600]="vehicleFilter === f"
+                    [class.text-white]="vehicleFilter === f"
+                    class="px-2.5 py-1 text-4xs font-bold border rounded bg-white text-slate-600"
+                  >
+                    {{ f.toUpperCase() }}
+                  </button>
+                }
+              </div>
+
+              <table class="w-full text-left text-xs border-collapse">
+                <thead>
+                  <tr class="border-b border-slate-200 bg-slate-50 font-bold text-slate-500 uppercase">
+                    <th class="p-3">Plate No</th>
+                    <th class="p-3">Model</th>
+                    <th class="p-3">Owner</th>
+                    <th class="p-3">Driver</th>
+                    <th class="p-3">Contract Client</th>
+                    <th class="p-3">Status</th>
+                    <th class="p-3 text-center">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @for (v of filteredVehicles; track v.id) {
+                    <tr class="border-b border-slate-100 hover:bg-slate-50/40">
+                      <td class="p-3 font-mono font-bold text-slate-900">{{ v.registrationNumber }}</td>
+                      <td class="p-3 font-semibold text-slate-600">{{ v.manufacturer }} {{ v.model }}</td>
+                      <td class="p-3">{{ v.ownerName }}</td>
+                      <td class="p-3">{{ v.driverName }}</td>
+                      <td class="p-3 font-semibold text-slate-600">{{ v.company }}</td>
+                      <td class="p-3">
+                        <span [class]="getVehicleExpiryStatus(v).color" class="px-2 py-0.5 rounded-full text-4xs font-bold border">
+                          {{ getVehicleExpiryStatus(v).label }}
+                        </span>
+                      </td>
+                      <td class="p-3 text-center flex justify-center gap-1.5">
+                        <button (click)="startEdit(v, 'vehicle')" class="p-1 hover:bg-slate-100 rounded text-slate-500">Edit</button>
+                        <button (click)="triggerDelete(v.id, 'vehicle', v.registrationNumber)" class="p-1 hover:bg-rose-50 rounded text-rose-500">Del</button>
+                      </td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            }
+
+            <!-- Owner Master Table -->
+            @if (activeSubTab === 'Owner Master') {
+              <table class="w-full text-left text-xs border-collapse">
+                <thead>
+                  <tr class="border-b border-slate-200 bg-slate-50 font-bold text-slate-500 uppercase">
+                    <th class="p-3">ID</th>
+                    <th class="p-3">Full Name</th>
+                    <th class="p-3">Phone</th>
+                    <th class="p-3">Bank Details</th>
+                    <th class="p-3">IFSC</th>
+                    <th class="p-3 text-center">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @for (o of filteredOwners; track o.id) {
+                    <tr class="border-b border-slate-100 hover:bg-slate-50/40">
+                      <td class="p-3 font-mono font-semibold">{{ o.id }}</td>
+                      <td class="p-3 font-bold text-slate-800">{{ o.name }}</td>
+                      <td class="p-3 font-mono">{{ o.phone }}</td>
+                      <td class="p-3 text-slate-600 font-semibold">{{ o.bankName }} ({{ o.accountNumber }})</td>
+                      <td class="p-3 font-mono">{{ o.ifsc }}</td>
+                      <td class="p-3 text-center flex justify-center gap-1.5">
+                        <button (click)="startEdit(o, 'owner')" class="p-1 hover:bg-slate-100 rounded text-slate-500">Edit</button>
+                        <button (click)="triggerDelete(o.id, 'owner', o.name)" class="p-1 hover:bg-rose-50 rounded text-rose-500">Del</button>
+                      </td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            }
+
+            <!-- Driver Master Table -->
+            @if (activeSubTab === 'Driver Master') {
+              <table class="w-full text-left text-xs border-collapse">
+                <thead>
+                  <tr class="border-b border-slate-200 bg-slate-50 font-bold text-slate-500 uppercase">
+                    <th class="p-3">ID</th>
+                    <th class="p-3">Driver Name</th>
+                    <th class="p-3">Phone</th>
+                    <th class="p-3">Licence Number</th>
+                    <th class="p-3 text-right">Base Salary</th>
+                    <th class="p-3 text-center">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @for (d of filteredDrivers; track d.id) {
+                    <tr class="border-b border-slate-100 hover:bg-slate-50/40">
+                      <td class="p-3 font-mono font-semibold">{{ d.id }}</td>
+                      <td class="p-3 font-bold text-slate-800">{{ d.name }}</td>
+                      <td class="p-3 font-mono">{{ d.phone }}</td>
+                      <td class="p-3 font-mono">{{ d.licenceNumber }}</td>
+                      <td class="p-3 text-right font-semibold">{{ formatCurrency(d.salary) }}</td>
+                      <td class="p-3 text-center flex justify-center gap-1.5">
+                        <button (click)="startEdit(d, 'driver')" class="p-1 hover:bg-slate-100 rounded text-slate-500">Edit</button>
+                        <button (click)="triggerDelete(d.id, 'driver', d.name)" class="p-1 hover:bg-rose-50 rounded text-rose-500">Del</button>
+                      </td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            }
+
+            <!-- Company Master Table -->
+            @if (activeSubTab === 'Company Master') {
+              <table class="w-full text-left text-xs border-collapse">
+                <thead>
+                  <tr class="border-b border-slate-200 bg-slate-50 font-bold text-slate-500 uppercase">
+                    <th class="p-3">Client Corporate</th>
+                    <th class="p-3">Billing Cycle</th>
+                    <th class="p-3">Payment Terms</th>
+                    <th class="p-3 text-center">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @for (c of filteredCompanies; track c.name) {
+                    <tr class="border-b border-slate-100 hover:bg-slate-50/40">
+                      <td class="p-3 font-bold text-slate-800">{{ c.name }}</td>
+                      <td class="p-3">{{ c.billingCycle }}</td>
+                      <td class="p-3 font-mono text-slate-500">{{ c.paymentTerms }}</td>
+                      <td class="p-3 text-center flex justify-center gap-1.5">
+                        <button (click)="startEdit(c, 'company')" class="p-1 hover:bg-slate-100 rounded text-slate-500">Edit</button>
+                        <button (click)="triggerDelete(c.name, 'company', c.name)" class="p-1 hover:bg-rose-50 rounded text-rose-500">Del</button>
+                      </td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            }
+
+            <!-- Site Master Table -->
+            @if (activeSubTab === 'Site Master') {
+              <table class="w-full text-left text-xs border-collapse">
+                <thead>
+                  <tr class="border-b border-slate-200 bg-slate-50 font-bold text-slate-500 uppercase">
+                    <th class="p-3">Site ID</th>
+                    <th class="p-3">Site Hub</th>
+                    <th class="p-3">Client Company</th>
+                    <th class="p-3">Location</th>
+                    <th class="p-3 text-center">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @for (s of filteredSites; track s.id) {
+                    <tr class="border-b border-slate-100 hover:bg-slate-50/40">
+                      <td class="p-3 font-mono font-semibold">{{ s.id }}</td>
+                      <td class="p-3 font-bold text-slate-800">{{ s.name }}</td>
+                      <td class="p-3">{{ s.companyName }}</td>
+                      <td class="p-3 text-slate-500">{{ s.location }}</td>
+                      <td class="p-3 text-center flex justify-center gap-1.5">
+                        <button (click)="startEdit(s, 'site')" class="p-1 hover:bg-slate-100 rounded text-slate-500">Edit</button>
+                        <button (click)="triggerDelete(s.id, 'site', s.name)" class="p-1 hover:bg-rose-50 rounded text-rose-500">Del</button>
+                      </td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            }
+          </div>
+        </div>
+      }
+
+      <!-- ==================== TRANSACTIONS VIEW ==================== -->
+      @if (activeTab === 'Transactions') {
+        <div class="bg-white rounded-xl border border-slate-200 shadow-xs overflow-hidden">
+          <div class="p-6 border-b border-slate-200 bg-slate-50/50 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <h2 class="text-xl font-bold text-slate-800 tracking-tight">{{ activeSubTab }} Logging</h2>
+              <p class="text-xs text-slate-500 font-medium">Log billing vouchers and expenses deduct items</p>
+            </div>
+
+            @if (!isAdding) {
+              <div class="flex items-center gap-2">
+                <select [(ngModel)]="filterMonth" class="px-2 py-1 bg-white border border-slate-200 rounded-lg text-xs">
+                  <option value="">All Months</option>
+                  @for (m of distinctMonths; track m) { <option [value]="m">{{ formatMonth(m) }}</option> }
+                </select>
+                <input type="text" placeholder="Search..." [(ngModel)]="searchQuery" class="px-3 py-1.5 text-xs bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 w-44" />
+                <button (click)="isAdding = true" class="px-4 py-1.5 text-xs font-semibold bg-blue-600 hover:bg-blue-700 text-white rounded-lg">+ Log Entry</button>
+              </div>
+            }
+          </div>
+
+          <!-- Add Transaction Forms -->
+          @if (isAdding) {
+            <div class="p-6 border-b border-slate-200 bg-slate-50/30">
+              <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">New Transaction Voucher</h3>
+              @if (formError) {
+                <div class="mb-4 p-3 bg-rose-50 border border-rose-200 text-rose-700 text-xs rounded-lg">{{ formError }}</div>
+              }
+
+              <!-- Save Payments Form -->
+              @if (activeSubTab === 'Company Payments') {
+                <form (submit)="handleSaveBilling($event)" class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Billing Month *</label>
+                    <select [(ngModel)]="payForm.month" name="month" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs bg-white">
+                      @for (m of distinctMonths; track m) { <option [value]="m">{{ formatMonth(m) }}</option> }
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Vehicle Plate Number *</label>
+                    <select [(ngModel)]="payForm.vehicleNumber" name="vehicleNumber" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs bg-white font-mono">
+                      <option value="">-- Choose Vehicle --</option>
+                      @for (v of vehicles; track v.id) { <option [value]="v.registrationNumber">{{ v.registrationNumber }}</option> }
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Invoice Number *</label>
+                    <input type="text" [(ngModel)]="payForm.invoiceNumber" name="invoiceNumber" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs font-mono" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Amount Received (₹) *</label>
+                    <input type="number" [(ngModel)]="payForm.amountReceived" name="amountReceived" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs font-bold" />
+                  </div>
+                  <div class="md:col-span-4 flex gap-2">
+                    <button type="submit" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg text-xs">Save Billing Voucher</button>
+                    <button type="button" (click)="resetForms()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-lg text-xs">Cancel</button>
+                  </div>
+                </form>
+              }
+
+              <!-- Save Expense Form -->
+              @if (activeSubTab === 'Expense Entry') {
+                <form (submit)="handleSaveExpense($event)" class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Transaction Date *</label>
+                    <input type="date" [(ngModel)]="expForm.date" name="date" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs bg-white" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Vehicle Plate Number *</label>
+                    <select [(ngModel)]="expForm.vehicleNumber" name="vehicleNumber" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs bg-white font-mono">
+                      <option value="">-- Choose Vehicle --</option>
+                      @for (v of vehicles; track v.id) { <option [value]="v.registrationNumber">{{ v.registrationNumber }}</option> }
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Expense Type *</label>
+                    <select [(ngModel)]="expForm.expenseType" name="expenseType" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs bg-white">
+                      @for (et of EXPENSE_TYPES; track et) { <option [value]="et">{{ et }}</option> }
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Amount Paid (₹) *</label>
+                    <input type="number" [(ngModel)]="expForm.amount" name="amount" class="w-full px-3 py-1.5 border border-slate-200 rounded-lg text-xs font-bold" />
+                  </div>
+                  <div class="md:col-span-4 flex gap-2">
+                    <button type="submit" class="px-4 py-2 bg-rose-600 hover:bg-rose-700 text-white font-semibold rounded-lg text-xs">Log Expense</button>
+                    <button type="button" (click)="resetForms()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-lg text-xs">Cancel</button>
+                  </div>
+                </form>
+              }
+            </div>
+          }
+
+          <!-- Transactions list table -->
+          <div class="overflow-x-auto">
+            @if (activeSubTab === 'Company Payments') {
+              <table class="w-full text-left text-xs border-collapse">
+                <thead>
+                  <tr class="border-b border-slate-200 bg-slate-50 font-bold text-slate-600 uppercase">
+                    <th class="p-3">Month</th>
+                    <th class="p-3">Plate No</th>
+                    <th class="p-3">Client</th>
+                    <th class="p-3">Invoice No</th>
+                    <th class="p-3 text-right">Amount Received</th>
+                    <th class="p-3 text-center">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @for (p of filteredPayments; track p.id) {
+                    <tr class="border-b border-slate-100 hover:bg-slate-50/40">
+                      <td class="p-3 font-mono font-medium">{{ p.month }}</td>
+                      <td class="p-3 font-mono font-bold">{{ p.vehicleNumber }}</td>
+                      <td class="p-3">{{ p.company }}</td>
+                      <td class="p-3 font-mono text-slate-500">{{ p.invoiceNumber }}</td>
+                      <td class="p-3 text-right text-blue-700 font-bold">{{ formatCurrency(p.amountReceived) }}</td>
+                      <td class="p-3 text-center">
+                        <button (click)="triggerDelete(p.id, 'payment', p.vehicleNumber)" class="p-1 hover:bg-rose-50 rounded text-rose-500">Del</button>
+                      </td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            }
+
+            @if (activeSubTab === 'Expense Entry') {
+              <table class="w-full text-left text-xs border-collapse">
+                <thead>
+                  <tr class="border-b border-slate-200 bg-slate-50 font-bold text-slate-600 uppercase">
+                    <th class="p-3">Date</th>
+                    <th class="p-3">Plate No</th>
+                    <th class="p-3">Category</th>
+                    <th class="p-3 text-right">Amount Deducted</th>
+                    <th class="p-3 text-center">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @for (e of filteredExpenses; track e.id) {
+                    <tr class="border-b border-slate-100 hover:bg-slate-50/40">
+                      <td class="p-3">{{ formatDate(e.date) }}</td>
+                      <td class="p-3 font-mono font-bold">{{ e.vehicleNumber }}</td>
+                      <td class="p-3">
+                        <span class="px-2 py-0.5 rounded text-4xs font-bold border border-slate-200 bg-slate-100 text-slate-700">
+                          {{ e.expenseType }}
+                        </span>
+                      </td>
+                      <td class="p-3 text-right text-rose-600 font-bold">{{ formatCurrency(e.amount) }}</td>
+                      <td class="p-3 text-center">
+                        <button (click)="triggerDelete(e.id, 'expense', e.vehicleNumber + ' (' + e.expenseType + ')')" class="p-1 hover:bg-rose-50 rounded text-rose-500">Del</button>
+                      </td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            }
+          </div>
+        </div>
+      }
+
+      <!-- ==================== LEDGERS VIEW ==================== -->
+      @if (activeTab === 'Ledgers') {
+        <div class="bg-white rounded-xl border border-slate-200 shadow-xs overflow-hidden p-6 space-y-6">
+          <div>
+            <h2 class="text-xl font-bold text-slate-800 tracking-tight">{{ activeSubTab }} Running Ledger</h2>
+            <p class="text-xs text-slate-500 font-medium">Reconciled running statements and balance values</p>
+          </div>
+
+          <!-- Vehicle Ledger List -->
+          @if (activeSubTab === 'Vehicle Ledger') {
+            <div class="space-y-4">
+              <div class="flex gap-2">
+                <select [(ngModel)]="selectedVehicle" class="px-3 py-1.5 text-xs bg-white border border-slate-200 rounded-lg font-bold font-mono">
+                  @for (v of vehicles; track v.id) {
+                    <option [value]="v.registrationNumber">{{ v.registrationNumber }} ({{ v.driverName }})</option>
+                  }
+                </select>
+              </div>
+
+              <!-- Ledger details calculated -->
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 font-semibold text-xs">
+                <div class="border rounded-lg p-4 bg-slate-50">
+                  <span class="text-4xs text-slate-400 block uppercase">Contract Revenue Billing</span>
+                  <p class="text-lg font-bold text-emerald-600 mt-1">
+                    {{ formatCurrency(getVehicleRevenue(selectedVehicle)) }}
+                  </p>
+                </div>
+                <div class="border rounded-lg p-4 bg-slate-50">
+                  <span class="text-4xs text-slate-400 block uppercase">Operational Deduct Expenses</span>
+                  <p class="text-lg font-bold text-rose-500 mt-1">
+                    {{ formatCurrency(getVehicleExpenses(selectedVehicle)) }}
+                  </p>
+                </div>
+                <div class="border rounded-lg p-4 bg-slate-50">
+                  <span class="text-4xs text-slate-400 block uppercase">Consolidated Net Position</span>
+                  <p class="text-lg font-black text-blue-700 mt-1">
+                    {{ formatCurrency(getVehicleRevenue(selectedVehicle) - getVehicleExpenses(selectedVehicle)) }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          }
+
+          <!-- Owner Ledger List -->
+          @if (activeSubTab === 'Owner Ledger') {
+            <div class="space-y-4">
+              <div class="flex gap-2">
+                <select [(ngModel)]="selectedOwner" class="px-3 py-1.5 text-xs bg-white border border-slate-200 rounded-lg font-bold">
+                  @for (o of owners; track o.id) {
+                    <option [value]="o.id">{{ o.name }} ({{ o.id }})</option>
+                  }
+                </select>
+              </div>
+
+              <!-- Owner ledger cards -->
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 font-semibold text-xs">
+                <div class="border rounded-lg p-4 bg-slate-50">
+                  <span class="text-4xs text-slate-400 block uppercase">Total Owner Fleet Income</span>
+                  <p class="text-lg font-bold text-slate-800 mt-1">
+                    {{ formatCurrency(getOwnerRevenue(selectedOwner)) }}
+                  </p>
+                </div>
+                <div class="border rounded-lg p-4 bg-slate-50">
+                  <span class="text-4xs text-slate-400 block uppercase">Standard Deduct (Commission 15%)</span>
+                  <p class="text-lg font-bold text-rose-500 mt-1">
+                    {{ formatCurrency(getOwnerDeduction(selectedOwner)) }}
+                  </p>
+                </div>
+                <div class="border rounded-lg p-4 bg-slate-50">
+                  <span class="text-4xs text-slate-400 block uppercase">Net Owner Disbursable Payable</span>
+                  <p class="text-lg font-black text-blue-700 mt-1">
+                    {{ formatCurrency(getOwnerNetPayable(selectedOwner)) }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      }
+
+      <!-- ==================== CONSOLIDATED SETTLEMENT VIEW ==================== -->
+      @if (activeTab === 'Settlement') {
+        <div class="space-y-6">
+          <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-xs grid grid-cols-1 md:grid-cols-4 gap-4 print:hidden">
+            <div>
+              <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Reconciliation Cycle</label>
+              <select [(ngModel)]="selectedMonth" class="w-full px-3 py-2 text-xs border border-slate-200 rounded-lg bg-white font-bold">
+                @for (m of distinctMonths; track m) {
+                  <option [value]="m">{{ formatMonth(m) }}</option>
+                }
+              </select>
+            </div>
+
+            @if (activeSubTab === 'Owner Statement') {
+              <div>
+                <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Owner Partner</label>
+                <select [(ngModel)]="selectedOwner" class="w-full px-3 py-2 text-xs border border-slate-200 rounded-lg bg-white font-bold">
+                  @for (o of owners; track o.id) { <option [value]="o.id">{{ o.name }}</option> }
+                </select>
+              </div>
+            }
+
+            @if (activeSubTab === 'Driver Statement') {
+              <div>
+                <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Driver Partner</label>
+                <select [(ngModel)]="selectedDriver" class="w-full px-3 py-2 text-xs border border-slate-200 rounded-lg bg-white font-bold">
+                  @for (d of drivers; track d.id) { <option [value]="d.id">{{ d.name }}</option> }
+                </select>
+              </div>
+            }
+
+            @if (activeSubTab === 'Invoice') {
+              <div>
+                <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Corporate Client</label>
+                <select [(ngModel)]="selectedCompany" class="w-full px-3 py-2 text-xs border border-slate-200 rounded-lg bg-white font-bold">
+                  @for (c of distinctCompanies; track c) { <option [value]="c">{{ c }}</option> }
+                </select>
+              </div>
+            }
+
+            <div class="flex items-end justify-end md:col-span-1">
+              <button (click)="handlePrint()" class="px-4 py-2 text-xs font-semibold bg-slate-800 hover:bg-slate-900 text-white rounded-lg flex items-center gap-1.5">
+                Print Document
+              </button>
+            </div>
+          </div>
+
+          <!-- Printable Document Container -->
+          <div class="bg-white rounded-xl border border-slate-200 shadow-xs overflow-hidden print:border-none print:shadow-none">
+            
+            <!-- MONTHLY SETTLEMENT -->
+            @if (activeSubTab === 'Monthly Settlement') {
+              <div>
+                <div class="p-6 border-b border-slate-200 bg-slate-50/50 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                  <div>
+                    <h2 class="text-md font-bold text-slate-800">Monthly Settlement Summary</h2>
+                    <p class="text-xs text-slate-500">Cycle: {{ formatMonth(selectedMonth) }} | Chennai fleet payouts</p>
+                  </div>
+                </div>
+
+                <div class="overflow-x-auto">
+                  <table class="w-full text-left text-xs border-collapse">
+                    <thead>
+                      <tr class="border-b border-slate-200 bg-slate-50 text-2xs font-bold text-slate-600 uppercase">
+                        <th class="py-3 px-4">Vehicle</th>
+                        <th class="py-3 px-4">Owner</th>
+                        <th class="py-3 px-4 text-right">Billing</th>
+                        <th class="py-3 px-4 text-right">Deductions</th>
+                        <th class="py-3 px-4 text-right">Net Payable</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @for (row of getMonthlySettlementData(); track row.vehicle) {
+                        <tr class="border-b border-slate-100 hover:bg-slate-50/20 font-semibold">
+                          <td class="py-2.5 px-4 font-mono font-bold text-slate-900">{{ row.vehicle }}</td>
+                          <td class="py-2.5 px-4 text-slate-600">{{ row.owner }}</td>
+                          <td class="py-2.5 px-4 text-right text-emerald-600">{{ formatCurrency(row.billing) }}</td>
+                          <td class="py-2.5 px-4 text-right text-rose-500">{{ formatCurrency(row.totalDeductions) }}</td>
+                          <td class="py-2.5 px-4 text-right text-blue-700 font-extrabold">{{ formatCurrency(row.netPayable) }}</td>
+                        </tr>
+                      }
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            }
+
+            <!-- OWNER STATEMENT SHEET -->
+            @if (activeSubTab === 'Owner Statement' && getOwnerStatementData()) {
+              <div class="p-12 space-y-8 max-w-4xl mx-auto border border-slate-100 my-4 shadow-sm print:shadow-none print:border-none print:p-0">
+                <div class="flex justify-between items-start border-b border-slate-300 pb-6">
+                  <div>
+                    <h1 class="text-2xl font-black tracking-tight text-blue-800 uppercase">E7 Travels Chennai</h1>
+                    <p class="text-xs text-slate-500 font-semibold">Corporate Transport Logistics Operators</p>
+                  </div>
+                  <div class="text-right">
+                    <span class="text-xs font-bold text-slate-400 block">Owner Payout Voucher</span>
+                    <span class="text-sm font-extrabold text-slate-800 block">Cycle: {{ formatMonth(selectedMonth) }}</span>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 text-xs font-semibold">
+                  <div>
+                    <span class="text-4xs text-slate-400 block uppercase">Settlement Payee:</span>
+                    <h3 class="text-md font-extrabold text-slate-800">{{ getOwnerStatementData()?.owner?.name }}</h3>
+                    <p class="text-slate-600 mt-1">ID: {{ getOwnerStatementData()?.owner?.id }} | Phone: {{ getOwnerStatementData()?.owner?.phone }}</p>
+                  </div>
+                  <div class="text-right">
+                    <span class="text-4xs text-slate-400 block uppercase">Transfer Bank Account:</span>
+                    <p class="text-slate-700 mt-1">{{ getOwnerStatementData()?.owner?.bankName }}</p>
+                    <p class="text-slate-600 font-mono">A/C: {{ getOwnerStatementData()?.owner?.accountNumber }}</p>
+                    <p class="text-slate-600 font-mono">IFSC: {{ getOwnerStatementData()?.owner?.ifsc }}</p>
+                  </div>
+                </div>
+
+                <div class="space-y-4">
+                  <h4 class="text-xs font-bold text-slate-700 uppercase border-b pb-1">Ledger Settlement Summary</h4>
+                  <div class="space-y-2 text-xs font-semibold text-slate-700">
+                    <div class="flex justify-between">
+                      <span>Gross Contract Fleet Earnings:</span>
+                      <span class="text-emerald-700 font-bold">+{{ getOwnerStatementData() ? formatCurrency(getOwnerStatementData()!.billing) : 0 }}</span>
+                    </div>
+                    <div class="pl-4 space-y-1 text-slate-600">
+                      <div class="flex justify-between">
+                        <span>CNG & Fuel Deduct:</span>
+                        <span>-{{ formatCurrency(getOwnerStatementData()?.deductions?.cng || 0) }}</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span>Auto Loan EMI:</span>
+                        <span>-{{ formatCurrency(getOwnerStatementData()?.deductions?.emi || 0) }}</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span>FASTag Toll:</span>
+                        <span>-{{ formatCurrency(getOwnerStatementData()?.deductions?.fastag || 0) }}</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span>Advances:</span>
+                        <span>-{{ formatCurrency(getOwnerStatementData()?.deductions?.advance || 0) }}</span>
+                      </div>
+                    </div>
+                    <div class="border-t pt-2 flex justify-between text-sm font-black text-slate-900 bg-slate-50 p-2 rounded">
+                      <span>NET AMOUNT PAYABLE:</span>
+                      <span class="text-blue-800">{{ formatCurrency(getOwnerStatementData()?.netPayable || 0) }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      }
+
+      <!-- ==================== PARAMETERS SETTINGS VIEW ==================== -->
+      @if (activeTab === 'Settings') {
+        <div class="space-y-6">
+          <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-xs">
+            <h2 class="text-md font-bold text-slate-800 tracking-tight flex items-center gap-2 mb-4">
+              Database Mappings & Settings
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="border border-slate-200 rounded-lg p-4 bg-slate-50">
+                <span class="text-4xs font-semibold text-slate-400 uppercase">Synchronisation Mode</span>
+                <p class="text-xs font-bold text-slate-800 mt-1">Live Local Database Server</p>
+                <p class="text-3xs text-slate-500 mt-2">
+                  All changes made on vehicles, owners, drivers, billing payments, and operational deductions are saved
+                  directly to your local `db.json` database.
+                </p>
+              </div>
+
+              <div class="border border-slate-200 rounded-lg p-4 bg-slate-50 space-y-3">
+                <div>
+                  <span class="text-4xs font-semibold text-slate-400 uppercase">Database Control</span>
+                  <p class="text-xs font-bold text-slate-800 mt-1">Manage Database State</p>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <button
+                    (click)="handleClearDatabase()"
+                    class="w-full px-3 py-1.5 text-2xs font-semibold bg-rose-50 border border-rose-250 text-rose-700 hover:bg-rose-100 rounded-md shadow-3xs flex items-center justify-center gap-1 cursor-pointer"
+                  >
+                    Clear Database (Fresh Start)
+                  </button>
+                  <button
+                    (click)="handleForceRefresh()"
+                    class="w-full px-3 py-1.5 text-2xs font-semibold bg-white border border-slate-250 text-slate-700 hover:bg-slate-50 rounded-md shadow-3xs flex items-center justify-center gap-1 cursor-pointer"
+                  >
+                    Reset & Seed Sample Data
+                  </button>
+                </div>
+              </div>
+
+              <div class="border border-slate-200 rounded-lg p-4 bg-slate-50 space-y-4">
+                <div>
+                  <span class="text-4xs font-semibold text-slate-400 uppercase">GST Tax Rate</span>
+                  <div class="flex items-center gap-2 mt-1">
+                    <input type="number" [(ngModel)]="taxRate" class="w-16 px-2 py-0.5 border border-slate-250 bg-white rounded text-xs font-bold" />
+                    <span class="text-xs font-semibold text-slate-600">% Service Tax</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </main>
+  </div>
+
+  <!-- Deletion Confirmation Modal -->
+  @if (deleteCandidate) {
+    <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center z-50 p-4">
+      <div class="bg-white rounded-xl shadow-xl max-w-md w-full border border-slate-100 overflow-hidden">
+        <div class="p-6">
+          <h3 class="text-lg font-bold text-slate-900">Confirm Deletion</h3>
+          <p class="text-sm text-slate-600 mt-2">
+            Are you sure you want to delete <span class="font-semibold text-slate-800">"{{ deleteCandidate.title }}"</span>?
+            This action is permanent and cannot be undone.
+          </p>
+        </div>
+        <div class="bg-slate-50 px-6 py-4 flex justify-end gap-3 border-t">
+          <button (click)="deleteCandidate = null" class="px-4 py-2 text-xs font-semibold bg-white border text-slate-700 rounded-lg hover:bg-slate-50">Cancel</button>
+          <button (click)="confirmDelete()" class="px-4 py-2 text-xs font-semibold bg-rose-600 text-white rounded-lg hover:bg-rose-700">Delete</button>
+        </div>
+      </div>
+    </div>
+  }
+</div>

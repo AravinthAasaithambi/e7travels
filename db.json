@@ -1,0 +1,82 @@
+{
+  "vehicles": [
+    {
+      "id": "VEH001",
+      "registrationNumber": "TN-07-AB-1234",
+      "model": "Indica",
+      "manufacturer": "Tata",
+      "year": 2022,
+      "fuelType": "Diesel",
+      "transmission": "Manual",
+      "vehicleType": "Sedan",
+      "ownerId": "OWN02",
+      "ownerName": "Test Owner",
+      "driverId": "DRV01",
+      "driverName": "Test Driver",
+      "company": "",
+      "site": "",
+      "joiningDate": "2026-07-08",
+      "status": "Active",
+      "emiAmount": 0,
+      "emiDueDate": "",
+      "insuranceExpiry": "",
+      "permitExpiry": "",
+      "fcExpiry": "",
+      "pollutionExpiry": "",
+      "fastagNumber": "",
+      "remarks": ""
+    }
+  ],
+  "owners": [
+    {
+      "id": "OWN01",
+      "name": "wddhbjewnd",
+      "phone": "1234",
+      "email": "",
+      "address": "",
+      "bankName": "",
+      "accountNumber": "",
+      "ifsc": "",
+      "upiId": "",
+      "pan": "",
+      "aadhaar": "",
+      "remarks": ""
+    },
+    {
+      "id": "OWN02",
+      "name": "Test Owner",
+      "phone": "1234567890",
+      "email": "",
+      "address": "",
+      "bankName": "Test Bank",
+      "accountNumber": "9876543210",
+      "ifsc": "TEST0001234",
+      "upiId": "",
+      "pan": "",
+      "aadhaar": "",
+      "remarks": ""
+    }
+  ],
+  "drivers": [
+    {
+      "id": "DRV01",
+      "name": "Test Driver",
+      "phone": "9876543210",
+      "address": "",
+      "badgeNumber": "",
+      "badgeExpiry": "",
+      "licenceNumber": "DL-12345",
+      "licenceExpiry": "",
+      "aadhaar": "",
+      "pan": "",
+      "emergencyContact": "",
+      "salary": 0,
+      "joiningDate": "2026-07-08",
+      "status": "Active"
+    }
+  ],
+  "companies": [],
+  "sites": [],
+  "billing": [],
+  "expenses": []
+}

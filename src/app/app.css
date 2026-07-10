@@ -1,0 +1,14 @@
+@media print {
+  body {
+    background-color: #fff;
+    color: #000;
+  }
+  @page {
+    size: A4;
+    margin: 1.5cm;
+  }
+  /* Avoid breaking elements across pages */
+  .print-card {
+    page-break-inside: avoid;
+  }
+}
